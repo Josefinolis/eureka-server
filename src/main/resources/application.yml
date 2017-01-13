@@ -1,8 +1,11 @@
 eureka:
   instance:
-    hostname: eureka
+    leaseExpirationDurationInSeconds: 30
   client:
-    registerWithEureka: false
-    fetchRegistry: false
+    fetchRegistry: true
+    registerWithEureka: true
     serviceUrl:
-      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+      defaultZone: http://localhost:${server.port}/eureka/
+  server:
+    enableSelfPreservation: false
+    waitTimeInMsWhenSyncEmpty: 15
